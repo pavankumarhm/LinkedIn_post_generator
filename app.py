@@ -48,10 +48,10 @@ if topic:
     detail = st.text_input("👩‍💼 **You**: Details about the topic")
 
     if detail:
-        initial_prompt = f"Write an intriguing LinkedIn post using {topic} and {detail}."
+        initial_prompt = f"Write an intriguing LinkedIn post using {topic} and {detail}. add some emojis when needed"
         post = generate_linkedin_post(initial_prompt)
         st.write(f"🤖 **AI**: Here's your LinkedIn post:")
-        st.text_area("", post, height=200, key="initial_post")
+        st.text_area("Initial Post", post, height=200, key="initial_post")
 
         feedback = st.text_input("👩‍💼 **You**: How would you like to modify or refine the post?")
 
@@ -59,8 +59,9 @@ if topic:
             revised_prompt = f"Modify the post: '{post}' with feedback: '{feedback}'"
             revised_post = generate_linkedin_post(revised_prompt)
             st.write(f"🤖 **AI**: Based on your feedback, here's the revised post:")
-            st.text_area("", revised_post, height=200, key="revised_post")
+            st.text_area("Revised Post", revised_post, height=200, key="revised_post")
             st.write("🤖 **AI**: Feel free to provide more feedback or post it directly on LinkedIn!")
+
 
 
 
