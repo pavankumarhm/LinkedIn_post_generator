@@ -7,13 +7,14 @@ from dotenv import load_dotenv
 load_dotenv()
 # Set up OpenAI API Key
 openai.api_key = os.getenv("open_ai_key")
+MODEL = os.getenv("model")
 open_ai_key = st.secrets["open_ai_key"]
-
+MODEL = st.secrets["model"]
 def generate_linkedin_post(prompt: str) -> str:
     """Generate a LinkedIn post based on the user's prompt using OpenAI."""
 
     response = openai.ChatCompletion.create(
-        model="ft:gpt-3.5-turbo-0613:matt-young-media::7t3Iz7tA",
+        model= MODEL,
         messages=[
             {
                 "role": "user",
