@@ -2,14 +2,28 @@ import os
 import openai
 import streamlit as st
 from dotenv import load_dotenv
+st.write("Secret Key", st.secrets["open_ai_key"])
 
+# And the root-level secrets are also accessible as environment variables:
+
+st.write(
+    "Has environment variables been set:",
+    os.environ["open_ai_key"] == st.secrets["open_ai_key"],
+)
+
+st.write("Secret Key", st.secrets["MODEL"])
+
+st.write(
+    "Has environment variables been set:",
+    os.environ["MODEL"] == st.secrets["MODEL"],
+)
 # Load environment variables from .env file
 load_dotenv()
 # Set up OpenAI API Key
 openai.api_key = os.getenv("open_ai_key")
-MODEL = os.getenv("model")
-open_ai_key = st.secrets["open_ai_key"]
-MODEL = st.secrets["model"]
+MODEL = os.getenv("MODEL")
+
+
 def generate_linkedin_post(prompt: str) -> str:
     """Generate a LinkedIn post based on the user's prompt using OpenAI."""
 
