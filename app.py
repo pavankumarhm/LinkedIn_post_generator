@@ -1,12 +1,10 @@
 import os
 import openai
 import streamlit as st
-from dotenv import load_dotenv
 
 # Load environment variables from .env file
-load_dotenv()
 # Set up OpenAI API Key
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = ("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")
 
 def generate_linkedin_post(prompt: str) -> str:
     """Generate a LinkedIn post based on the user's prompt using OpenAI."""
