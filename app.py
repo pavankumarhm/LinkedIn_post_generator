@@ -2,21 +2,11 @@ import os
 import openai
 import streamlit as st
 from dotenv import load_dotenv
-st.write("Secret Key", st.secrets["open_ai_key"])
 
-# And the root-level secrets are also accessible as environment variables:
 
-st.write(
-    "Has environment variables been set:",
-    os.environ["open_ai_key"] == st.secrets["open_ai_key"],
-)
+openai.api_key = st.secrets["open_ai_key"]
+MODEL = st.secrets["MODEL"]
 
-st.write("Secret Key", st.secrets["MODEL"])
-
-st.write(
-    "Has environment variables been set:",
-    os.environ["MODEL"] == st.secrets["MODEL"],
-)
 # Load environment variables from .env file
 load_dotenv()
 # Set up OpenAI API Key
@@ -25,7 +15,7 @@ MODEL = os.getenv("MODEL")
 
 
 def generate_linkedin_post(prompt: str) -> str:
-    """Generate a LinkedIn post based on the user's prompt using OpenAI."""
+    """Generate a Intriguing LinkedIn post based on the user's prompt using OpenAI."""
 
     response = openai.ChatCompletion.create(
         model= MODEL,
@@ -52,12 +42,12 @@ st.write("AI: Hi! Let's create a LinkedIn post. What's the main topic or achieve
 topic = st.text_input("You:")
 
 if topic:
-    detail_prompt = f"Can you provide more details about {topic}?"
+    detail_prompt = f"Can you provide more details about the {topic}?"
     st.write(f"AI: {detail_prompt}")
     detail = st.text_input("You (Detail about the topic):")
 
     if detail:
-        initial_prompt = f"I want to share about {topic}. {detail}"
+        initial_prompt = f" Generate a Intriguing LinkedIn post based on the {topic}. {detail}."
         post = generate_linkedin_post(initial_prompt)
 
         st.write(f"AI: Here's your LinkedIn post based on your input:")
