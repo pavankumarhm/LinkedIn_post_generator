@@ -36,7 +36,7 @@ def generate_linkedin_post(prompt: str) -> str:
     return assistant_response
 
 # Main App UI
-st.image("linkedin-bot-automation-tool.png", width=400 )  # Add a cool image on top (e.g., AI, robot)
+st.image("linkedin-bot-automation-tool.png", use_column_width="auto")  # Add a cool image on top (e.g., AI, robot)
 st.title("🤖 **LinkedIn Post Generator Assistant**")
 st.write("Let's create an intriguing LinkedIn post! 🚀")
 
@@ -48,7 +48,7 @@ if topic:
     detail = st.text_input("👩‍💼 **You**: Details about the topic")
 
     if detail:
-        initial_prompt = f"Write a intriguing LinkedIn post using {topic} and {detail}. add some emojis when needed"
+        initial_prompt = f"Write an intriguing LinkedIn post using {topic} and {detail}. add some emojis when needed"
         post = generate_linkedin_post(initial_prompt)
         st.write(f"🤖 **AI**: Here's your LinkedIn post:")
         st.text_area("", post, height=200)
