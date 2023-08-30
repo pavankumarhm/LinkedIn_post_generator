@@ -48,7 +48,7 @@ if topic:
     detail = st.text_input("👩‍💼 **You**: Details about the topic")
 
     if detail:
-        initial_prompt = f"Write an intriguing and creative LinkedIn post using {topic} and {detail}."
+        initial_prompt = f"Write an intriguing LinkedIn post using {topic} and {detail}."
         post = generate_linkedin_post(initial_prompt)
         st.write(f"🤖 **AI**: Here's your LinkedIn post:")
         st.text_area("", post, height=200, key="initial_post")
