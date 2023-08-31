@@ -44,11 +44,11 @@ st.write("Let's create an intriguing LinkedIn post! 🚀")
 topic = st.text_input("👩‍💼 **You**: What's the main topic or achievement you'd like to share?")
 
 if topic:
-    st.write(f"🤖 **AI**: Add some details about the *{topic}* to make it more intriguing.")
+    st.write(f"🤖 **AI**: Add some details about the *{topic}*")
     detail = st.text_input("👩‍💼 **You**: Details about the topic")
 
     if detail:
-        initial_prompt = f"Write an intriguing and sophisticated LinkedIn Post using {topic} and {detail}."
+        initial_prompt = f"Write an intriguing and sophisticated LinkedIn Post using {topic} and {detail}. The post should be like a Zero to Hero story and Inspiring."
         post = generate_linkedin_post(initial_prompt)
         st.write(f"🤖 **AI**: Here's your LinkedIn post:")
         st.text_area("Initial Post", post, height=200, key="initial_post")
@@ -61,7 +61,6 @@ if topic:
             st.write(f"🤖 **AI**: Based on your feedback, here's the revised post:")
             st.text_area("Revised Post", revised_post, height=200, key="revised_post")
             st.write("🤖 **AI**: Feel free to provide more feedback or post it directly on LinkedIn!")
-
 
 
 
